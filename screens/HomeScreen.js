@@ -1,19 +1,14 @@
 import React from "react";
-import { Image, ScrollView, StyleSheet } from "react-native";
+import { Image, StyleSheet } from "react-native";
 import { Input, Layout, Text, Button } from "react-native-ui-kitten";
-
-import { MonoText } from "../components/StyledText";
+import Destination from "../features/destination/Destination";
 
 export default function HomeScreen(props) {
-  const [destination, onChangeDestination] = React.useState("");
   const { navigate } = props.navigation;
 
   return (
     <Layout style={styles.container}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}
-      >
+      <Layout style={styles.contentContainer}>
         <Layout style={styles.welcomeContainer}>
           <Image
             source={
@@ -33,11 +28,7 @@ export default function HomeScreen(props) {
           <Text appearance="hint" style={{ paddingBottom: 8 }}>
             Where do you want to go?
           </Text>
-          <Input
-            onChangeText={text => onChangeDestination(text)}
-            value={destination}
-            placeholder={"Baixa-Chiado"}
-          />
+          <Destination />
         </Layout>
 
         <Layout style={styles.sectionContainer}>
@@ -47,7 +38,7 @@ export default function HomeScreen(props) {
         <Layout style={styles.sectionContainer}>
           <Button appearance="outline">Change preferences</Button>
         </Layout>
-      </ScrollView>
+      </Layout>
     </Layout>
   );
 }
@@ -55,23 +46,6 @@ export default function HomeScreen(props) {
 HomeScreen.navigationOptions = {
   header: null
 };
-
-function DevelopmentModeNotice() {
-  if (__DEV__) {
-    return (
-      <Text style={styles.developmentModeText}>
-        Development mode is enabled: your app will be slower but you can use
-        useful development tools.
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={styles.developmentModeText}>
-        You are not in development mode: your app will run at full speed.
-      </Text>
-    );
-  }
-}
 
 const styles = StyleSheet.create({
   container: {
