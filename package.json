@@ -16,6 +16,7 @@
     "@expo/samples": "~3.0.3",
     "@expo/vector-icons": "^10.0.3",
     "@react-navigation/web": "^1.0.0-alpha.9",
+    "@reduxjs/toolkit": "^1.0.4",
     "expo": "^35.0.0",
     "expo-asset": "^7.0.0",
     "expo-constants": "^7.0.0",
@@ -28,11 +29,13 @@
     "react-native-maps": "~0.25.0",
     "react-native-ui-kitten": "^4.2.0",
     "react-native-web": "^0.11.7",
-    "react-navigation": "^3.12.0"
+    "react-navigation": "^3.12.0",
+    "redux": "^4.0.4"
   },
   "devDependencies": {
     "babel-preset-expo": "^7.0.0",
-    "jest-expo": "^35.0.0"
+    "jest-expo": "^35.0.0",
+    "prettier": "^1.19.1"
   },
   "private": true
 }

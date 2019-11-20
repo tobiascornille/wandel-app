@@ -1,61 +1,51 @@
-import React from 'react';
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-} from 'react-native';
-import { 
-  Input, 
-  Layout, 
-  Text,
-  Button,
-} from 'react-native-ui-kitten';
+import React from "react";
+import { Image, ScrollView, StyleSheet } from "react-native";
+import { Input, Layout, Text, Button } from "react-native-ui-kitten";
 
-import { MonoText } from '../components/StyledText';
+import { MonoText } from "../components/StyledText";
 
 export default function HomeScreen(props) {
-  const [destination, onChangeDestination] = React.useState('');
+  const [destination, onChangeDestination] = React.useState("");
   const { navigate } = props.navigation;
 
   return (
     <Layout style={styles.container}>
       <ScrollView
         style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
+        contentContainerStyle={styles.contentContainer}
+      >
         <Layout style={styles.welcomeContainer}>
           <Image
             source={
               __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
+                ? require("../assets/images/robot-dev.png")
+                : require("../assets/images/robot-prod.png")
             }
             style={styles.welcomeImage}
           />
         </Layout>
 
         <Layout style={styles.sectionContainer}>
-          <Text category='h4'>
-            Welcome in Lisbon!
-          </Text>
+          <Text category="h4">Welcome to Lisbon!</Text>
         </Layout>
 
         <Layout style={styles.sectionContainer}>
-          <Text appearance='hint' style={{paddingBottom: 8}}>Where do you want to go?</Text>
+          <Text appearance="hint" style={{ paddingBottom: 8 }}>
+            Where do you want to go?
+          </Text>
           <Input
             onChangeText={text => onChangeDestination(text)}
             value={destination}
-            placeholder={'Baixa-Chiado'}
+            placeholder={"Baixa-Chiado"}
           />
         </Layout>
 
         <Layout style={styles.sectionContainer}>
-          <Button
-            onPress={() => navigate('Routes')}
-          >Find route</Button>
+          <Button onPress={() => navigate("Routes")}>Find route</Button>
         </Layout>
 
         <Layout style={styles.sectionContainer}>
-          <Button appearance='outline'>Change preferences</Button>
+          <Button appearance="outline">Change preferences</Button>
         </Layout>
       </ScrollView>
     </Layout>
@@ -63,7 +53,7 @@ export default function HomeScreen(props) {
 }
 
 HomeScreen.navigationOptions = {
-  header: null,
+  header: null
 };
 
 function DevelopmentModeNotice() {
@@ -86,23 +76,23 @@ function DevelopmentModeNotice() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 16,
+    paddingHorizontal: 16
   },
   sectionContainer: {
-    paddingVertical: 8,
+    paddingVertical: 8
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 30
   },
   welcomeContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 10,
-    marginBottom: 20,
+    marginBottom: 20
   },
   welcomeImage: {
     width: 150,
     height: 120,
-    resizeMode: 'contain',
-    marginVertical: 30,
-  },
+    resizeMode: "contain",
+    marginVertical: 30
+  }
 });
