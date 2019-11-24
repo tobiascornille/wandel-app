@@ -1,12 +1,14 @@
 import { AppLoading } from "expo";
 import { Asset } from "expo-asset";
 import * as Font from "expo-font";
+import * as Permissions from "expo-permissions";
+import * as Location from "expo-location";
 import React, { useState } from "react";
 import { Platform, StatusBar, StyleSheet, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { ApplicationProvider } from "react-native-ui-kitten";
 import { mapping, light as lightTheme } from "@eva-design/eva";
-
+import store from "./store";
 import AppNavigator from "./navigation/AppNavigator";
 
 export default function App(props) {
@@ -36,7 +38,8 @@ async function loadResourcesAsync() {
   await Promise.all([
     Asset.loadAsync([
       require("./assets/images/robot-dev.png"),
-      require("./assets/images/robot-prod.png")
+      require("./assets/images/robot-prod.png"),
+      require("./assets/images/current-location.png")
     ]),
     Font.loadAsync({
       // This is the font that we are using for our tab bar
@@ -44,8 +47,15 @@ async function loadResourcesAsync() {
       // We include SpaceMono because we use it in HomeScreen.js. Feel free to
       // remove this if you are not using it in your app
       "space-mono": require("./assets/fonts/SpaceMono-Regular.ttf")
-    })
+    }),
+    Permissions.askAsync(Permissions.LOCATION)
   ]);
+  await Location.watchPositionAsync(
+    { accuracy: Location.Accuracy.BestForNavigation },
+    location => {
+      store.dispatch({ type: "location/setLocation", payload: location });
+    }
+  );
 }
 
 function handleLoadingError(error) {

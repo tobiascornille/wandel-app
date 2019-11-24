@@ -1,20 +1,23 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import MapView from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import CurrentLocationMarker from "../features/location/CurrentLocationMarker";
 
 export default function RoutesScreen() {
   return (
     <View style={styles.container}>
       <MapView
         style={styles.mapStyle}
-        provider={"google"}
+        provider={PROVIDER_GOOGLE}
         initialRegion={{
           latitude: 38.736946,
           longitude: -9.142685,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421
         }}
-      />
+      >
+        <CurrentLocationMarker />
+      </MapView>
     </View>
   );
 }
