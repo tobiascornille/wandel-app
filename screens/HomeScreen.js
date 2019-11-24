@@ -2,10 +2,9 @@ import React from "react";
 import { Image, StyleSheet } from "react-native";
 import { Layout, Text, Button } from "react-native-ui-kitten";
 import Destination from "../features/destination/Destination";
+import RouteButton from "../features/routes/RouteButton";
 
 export default function HomeScreen(props) {
-  const { navigate } = props.navigation;
-
   return (
     <Layout style={styles.container}>
       <Layout style={styles.contentContainer}>
@@ -26,13 +25,13 @@ export default function HomeScreen(props) {
 
         <Layout style={styles.sectionContainer}>
           <Text appearance="hint" style={{ paddingBottom: 8 }}>
-            Where do you want to go?
+            Where do you want to go??
           </Text>
           <Destination />
         </Layout>
 
         <Layout style={styles.sectionContainer}>
-          <Button onPress={() => navigate("Routes")}>Find route</Button>
+          <RouteButton {...props} />
         </Layout>
 
         <Layout style={styles.sectionContainer}>
