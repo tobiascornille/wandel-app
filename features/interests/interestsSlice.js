@@ -3,17 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const interestsSlice = createSlice({
   name: "interests",
   initialState: {
-    AR: false,
-    SA: false,
-    MU: false,
-    VP: false,
-    LM: false,
-    PA: false,
-    LC: false
+    Architecture: false,
+    "Street Art": false,
+    Museums: false,
+    Viewpoints: false,
+    Landmarks: false,
+    Parks: false,
+    "Local Cuisine": false
   },
   reducers: {
-    toggleInterest(state, { interest }) {
-      state[interest] = !state[interest];
+    toggleInterest(state, { payload }) {
+      state[payload] = !state[payload];
     }
   }
 });

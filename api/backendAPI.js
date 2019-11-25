@@ -16,6 +16,7 @@ export async function getRoutes(location, destination, interests) {
       }
     );
 
+    console.log("API response");
     console.log(routesResponse.data);
     return routesResponse.data;
   } catch (err) {

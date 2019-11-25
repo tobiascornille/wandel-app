@@ -8,6 +8,7 @@ import {
 import TabBarIcon from "../components/TabBarIcon";
 import HomeScreen from "../screens/HomeScreen";
 import RoutesScreen from "../screens/RoutesScreen";
+import InterestsScreen from "../screens/InterestsScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 
 const config = Platform.select({
@@ -17,7 +18,9 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
-    Home: HomeScreen
+    Home: HomeScreen,
+    Routes: RoutesScreen,
+    Interests: InterestsScreen
   },
   config
 );
@@ -37,25 +40,6 @@ HomeStack.navigationOptions = {
 };
 
 HomeStack.path = "";
-
-const RoutesStack = createStackNavigator(
-  {
-    Routes: RoutesScreen
-  },
-  config
-);
-
-RoutesStack.navigationOptions = {
-  tabBarLabel: "Routes",
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === "ios" ? "ios-link" : "md-link"}
-    />
-  )
-};
-
-RoutesStack.path = "";
 
 const SettingsStack = createStackNavigator(
   {
@@ -78,7 +62,6 @@ SettingsStack.path = "";
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  RoutesStack,
   SettingsStack
 });
 

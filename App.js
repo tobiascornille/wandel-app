@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import { Platform, StatusBar, StyleSheet, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { ApplicationProvider } from "react-native-ui-kitten";
-import { mapping, light as lightTheme } from "@eva-design/eva";
+import { mapping, light, dark } from "@eva-design/eva";
 import store from "./store";
 import AppNavigator from "./navigation/AppNavigator";
 
@@ -26,7 +26,7 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === "ios" && <StatusBar barStyle="default" />}
-        <ApplicationProvider mapping={mapping} theme={lightTheme}>
+        <ApplicationProvider mapping={mapping} theme={light}>
           <AppNavigator />
         </ApplicationProvider>
       </View>
