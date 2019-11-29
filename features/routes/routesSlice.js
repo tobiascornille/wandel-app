@@ -10,10 +10,9 @@ const routesSlice = createSlice({
   reducers: {
     setRoutes: (state, { payload }) => {
       state.list = payload;
-      current = 0;
+      state.currentIndex = 0;
     },
     setCurrentIndex: (state, { payload }) => {
-      console.log("Current index: " + payload);
       state.currentIndex = payload;
     }
   }
