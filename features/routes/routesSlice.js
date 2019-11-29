@@ -3,13 +3,23 @@ import { getRoutes } from "../../api/backendAPI";
 
 const routesSlice = createSlice({
   name: "routes",
-  initialState: [],
+  initialState: {
+    list: [],
+    currentIndex: -1
+  },
   reducers: {
-    setRoutes: (_state, { payload }) => payload
+    setRoutes: (state, { payload }) => {
+      state.list = payload;
+      current = 0;
+    },
+    setCurrentIndex: (state, { payload }) => {
+      console.log("Current index: " + payload);
+      state.currentIndex = payload;
+    }
   }
 });
 
-export const { setRoutes } = routesSlice.actions;
+export const { setRoutes, setCurrentIndex } = routesSlice.actions;
 export default routesSlice.reducer;
 
 export const fetchRoutes = () => async (dispatch, getState) => {
