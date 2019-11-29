@@ -10,7 +10,7 @@ const RouteButton = ({ navigation, fetchRoutes }) => {
 
   handleFindRoute = () => {
     fetchRoutes();
-    navigate("Routes");
+    setTimeout(() => navigate("Routes"), 1000);
   };
 
   return <Button onPress={handleFindRoute}>Find route</Button>;
