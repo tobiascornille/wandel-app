@@ -12,6 +12,16 @@ import { IconRegistry, ApplicationProvider } from "react-native-ui-kitten";
 import { mapping, light, dark } from "@eva-design/eva";
 import store from "./store";
 import AppNavigator from "./navigation/AppNavigator";
+import * as Sentry from "sentry-expo";
+import Constants from "expo-constants";
+
+Sentry.init({
+  dsn: "https://8bd9a58b22d8459e9b153f9e181a11d3@sentry.io/1846158",
+  enableInExpoDevelopment: false,
+  debug: true
+});
+
+Sentry.setRelease(Constants.manifest.revisionId);
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);

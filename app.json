@@ -5,7 +5,7 @@
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": ["ios", "android"],
-    "version": "0.1.0",
+    "version": "0.1.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
@@ -22,6 +22,18 @@
     },
     "android": {
       "package": "com.ucdteam8.wandel"
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "tobias-cornille",
+            "project": "wandel-app",
+            "authToken": "cabd8e07c6bd488c9487a94265819cf849565d6a996646068c5b1fa761a2295b"
+          }
+        }
+      ]
     }
   }
 }
