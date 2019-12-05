@@ -3,10 +3,10 @@ import { StyleSheet, TouchableOpacity } from "react-native";
 import { Layout, Text, Button } from "react-native-ui-kitten";
 import { slideWidth, slideHeight } from "../../constants/Layout";
 
-const RouteCard = ({ data, index, navigation }) => {
+const RouteCard = ({ data, navigation }) => {
   const { navigate } = navigation;
-  const { routeName, route } = data;
-  const { distance, duration } = route.routes[0].legs[0];
+  const { routeName, legs } = data;
+  const { distance, duration } = legs[0];
   return (
     <Layout style={styles.slide}>
       <Layout style={styles.textContainer}>

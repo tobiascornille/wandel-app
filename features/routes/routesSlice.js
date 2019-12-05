@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getRoutes } from "../../api/backendAPI";
+import { getRoutesInfo } from "../../api/backendAPI";
+import { getDirections } from "../../api/directionsAPI";
 
 const routesSlice = createSlice({
   name: "routes",
@@ -24,9 +25,20 @@ export default routesSlice.reducer;
 export const fetchRoutes = () => async (dispatch, getState) => {
   const { location, destination, interests } = getState();
   try {
-    const routes = await getRoutes(location, destination, interests);
+    const routesInfo = await getRoutesInfo(location, destination, interests);
+    const routes = await Promise.all(
+      routesInfo.map(async ({ routeName, url, spots }) => {
+        const directions = await getDirections(url);
+        return {
+          routeName,
+          spots,
+          ...directions
+        };
+      })
+    );
+
     dispatch(setRoutes(routes));
   } catch (err) {
-    console.warn(err.toString());
+    console.error(err.toString());
   }
 };

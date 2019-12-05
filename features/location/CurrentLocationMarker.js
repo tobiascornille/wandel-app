@@ -11,7 +11,7 @@ const CurrentLocationMarker = ({ location }) => {
   if (location.coords) {
     const { latitude, longitude } = location.coords;
     return (
-      <Marker coordinate={{ latitude, longitude }}>
+      <Marker zIndex={2} coordinate={{ latitude, longitude }}>
         <Image
           source={require("../../assets/images/current-location.png")}
           style={styles.marker}

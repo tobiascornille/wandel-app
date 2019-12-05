@@ -13,8 +13,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = { setCurrentIndex };
 
 const RoutesSwiper = ({ routes, setCurrentIndex, navigation }) => {
+  const { list } = routes;
   const sliderWidth = layout.window.width;
-  return (
+  return list.length > 0 ? (
     <Carousel
       data={routes.list}
       renderItem={({ item, index }) => (
@@ -24,10 +25,7 @@ const RoutesSwiper = ({ routes, setCurrentIndex, navigation }) => {
       itemWidth={slideWidth}
       onBeforeSnapToItem={slideIndex => setCurrentIndex(slideIndex)}
     />
-  );
+  ) : null;
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RoutesSwiper);
-
-// const styles = StyleSheet.create({
-// });
