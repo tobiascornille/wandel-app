@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
-import { Layout, Text, Button } from "react-native-ui-kitten";
+import { StyleSheet, View } from "react-native";
+import { Layout, Text, Button } from "@ui-kitten/components";
 import { slideWidth, slideHeight } from "../../constants/Layout";
 
 const RouteCard = ({ data, navigation }) => {
@@ -8,7 +8,7 @@ const RouteCard = ({ data, navigation }) => {
   const { routeName, legs } = data;
   const { distance, duration } = legs[0];
   return (
-    <Layout style={styles.slide}>
+    <View style={styles.slide}>
       <Layout style={styles.textContainer}>
         <Text category="h4">{routeName}</Text>
         <Text category="h6">
@@ -23,7 +23,7 @@ const RouteCard = ({ data, navigation }) => {
           </Button>
         </Layout>
       </Layout>
-    </Layout>
+    </View>
   );
 };
 
@@ -31,27 +31,23 @@ export default RouteCard;
 
 const styles = StyleSheet.create({
   slide: {
-    width: slideWidth + 10,
+    borderColor: "#ddd",
+    width: slideWidth,
     height: slideHeight,
-    paddingHorizontal: 5,
-    paddingBottom: 18
+    borderRadius: 8,
+    elevation: 2
   },
   textContainer: {
     justifyContent: "center",
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingHorizontal: 16,
-    borderBottomLeftRadius: 8,
-    borderBottomRightRadius: 8
+    paddingVertical: 20,
+    paddingHorizontal: 16
   },
   footer: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    marginRight: 10
+    justifyContent: "space-between"
   },
   button: {
     height: 30,
-    width: slideWidth / 3,
     marginVertical: 10
   }
 });

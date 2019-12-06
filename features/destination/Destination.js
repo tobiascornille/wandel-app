@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { setDestination } from "./destinationSlice";
-import { Input } from "react-native-ui-kitten";
+import { Input } from "@ui-kitten/components";
 
 const mapStateToProps = state => ({
   destination: state.destination

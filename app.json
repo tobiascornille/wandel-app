@@ -21,7 +21,12 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.ucdteam8.wandel"
+      "package": "com.ucdteam8.wandel",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyC-laVwfZLf1qhUBJ4g7p-WUDPvi-zUWtI"
+        }
+      }
     },
     "hooks": {
       "postPublish": [

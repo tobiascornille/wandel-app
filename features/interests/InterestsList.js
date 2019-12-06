@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { toggleInterest } from "./interestsSlice";
-import { List, ListItem, CheckBox } from "react-native-ui-kitten";
+import { List, ListItem, CheckBox } from "@ui-kitten/components";
 
 const mapStateToProps = state => ({
   interests: state.interests

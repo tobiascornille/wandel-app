@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { Layout } from "react-native-ui-kitten";
+import { Layout } from "@ui-kitten/components";
 import InterestsList from "../features/interests/InterestsList";
 
 export default function InterestsScreen(props) {

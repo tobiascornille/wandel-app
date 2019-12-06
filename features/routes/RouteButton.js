@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchRoutes } from "./routesSlice";
-import { Button } from "react-native-ui-kitten";
+import { Button } from "@ui-kitten/components";
 
 const mapDispatchToProps = { fetchRoutes };
 

@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { StyleSheet } from "react-native";
-import MapView, { PROVIDER_GOOGLE, Marker, Polyline } from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE, Polyline } from "react-native-maps";
 import CurrentLocationMarker from "../location/CurrentLocationMarker";
+import SpotMarker from "../../components/SpotMarker";
+import mapStyle from "../../constants/mapStyle";
 
 const mapStateToProps = state => ({
   routes: state.routes
@@ -20,16 +22,19 @@ const Map = ({ routes }) => {
         style={styles.map}
         provider={PROVIDER_GOOGLE}
         initialRegion={region}
+        customMapStyle={mapStyle}
       >
         {spots.map(spot => (
-          <Marker
+          <SpotMarker
             zIndex={3}
             key={spot.name}
+            anchor={{ x: 0.5, y: 0.85 }}
+            category={spot.category[0]}
             coordinate={{
               latitude: spot.location.lat,
               longitude: spot.location.lng
             }}
-          />
+          ></SpotMarker>
         ))}
         <CurrentLocationMarker />
         <Polyline

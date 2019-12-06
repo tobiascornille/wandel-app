@@ -58,13 +58,19 @@ export async function getRoutesInfo(location, destination, interests) {
       routeName: "Route 2",
       url: mockupUrl,
       spots: mockupSpots
-    },
-    {
-      routeName: "Route 3",
-      url: mockupUrl,
-      spots: mockupSpots
     }
   ];
 
   return mockupResponse;
 }
+
+// {
+//   routeName: "Route 2",
+//   url: mockupUrl,
+//   spots: mockupSpots
+// },
+// {
+//   routeName: "Route 3",
+//   url: mockupUrl,
+//   spots: mockupSpots
+// }

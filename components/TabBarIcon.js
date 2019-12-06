@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon } from "react-native-ui-kitten";
+import { Icon } from "@ui-kitten/components";
 
 export default function TabBarIcon({ name, focused }) {
   const newName = focused ? name : name + "-outline";

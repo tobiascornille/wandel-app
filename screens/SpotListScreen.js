@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { Layout } from "react-native-ui-kitten";
+import { Layout } from "@ui-kitten/components";
 import SpotList from "../features/routes/SpotList";
 
 export default function SpotListScreen(props) {

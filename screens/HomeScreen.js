@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, StyleSheet } from "react-native";
-import { Layout, Text, Button } from "react-native-ui-kitten";
+import { Layout, Text, Button } from "@ui-kitten/components";
 import Destination from "../features/destination/Destination";
 import RouteButton from "../features/routes/RouteButton";
 
