@@ -9,7 +9,7 @@ const RouteCard = ({ data, navigation }) => {
   const { distance, duration } = legs[0];
   return (
     <View style={styles.slide}>
-      <Layout style={styles.textContainer}>
+      <View style={styles.textContainer}>
         <Text category="h4">{routeName}</Text>
         <Text category="h6">
           {duration.text} - {distance.text}
@@ -22,7 +22,7 @@ const RouteCard = ({ data, navigation }) => {
             Directions
           </Button>
         </Layout>
-      </Layout>
+      </View>
     </View>
   );
 };
@@ -31,23 +31,26 @@ export default RouteCard;
 
 const styles = StyleSheet.create({
   slide: {
-    borderColor: "#ddd",
-    width: slideWidth,
-    height: slideHeight,
-    borderRadius: 8,
-    elevation: 2
+    width: slideWidth + 20,
+    height: slideHeight + 40,
+    paddingHorizontal: 10,
+    marginVertical: 10
   },
   textContainer: {
+    width: slideWidth,
     justifyContent: "center",
+    elevation: 6,
+    backgroundColor: "white",
+    borderRadius: 8,
     paddingVertical: 20,
     paddingHorizontal: 16
   },
   footer: {
+    marginTop: 20,
     flexDirection: "row",
     justifyContent: "space-between"
   },
   button: {
-    height: 30,
-    marginVertical: 10
+    height: 30
   }
 });

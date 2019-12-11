@@ -12,11 +12,12 @@ const interestsSlice = createSlice({
     "Local Cuisine": false
   },
   reducers: {
+    setInterests: (_state, { payload }) => payload,
     toggleInterest(state, { payload }) {
       state[payload] = !state[payload];
     }
   }
 });
 
-export const { toggleInterest } = interestsSlice.actions;
+export const { setInterests, toggleInterest } = interestsSlice.actions;
 export default interestsSlice.reducer;

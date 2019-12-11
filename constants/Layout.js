@@ -11,5 +11,5 @@ export default {
   isSmallDevice: width < 375
 };
 
-export const slideWidth = 0.7 * width;
+export const slideWidth = 0.65 * width;
 export const slideHeight = 140;

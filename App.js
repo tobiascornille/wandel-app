@@ -14,13 +14,16 @@ import {
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import { MaterialIconsPack } from "./assets/icons/material-icons.js";
 import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
-import { mapping, light, dark } from "@eva-design/eva";
+import { mapping, light } from "@eva-design/eva";
+import { default as appTheme } from "./assets/themes/app-theme.json";
 import store from "./store";
 import AppNavigator from "./navigation/AppNavigator";
 import * as Sentry from "sentry-expo";
 import Constants from "expo-constants";
 import { Provider } from "react-redux";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+const theme = Object.assign(light, appTheme);
 
 Sentry.init({
   dsn: "https://8bd9a58b22d8459e9b153f9e181a11d3@sentry.io/1846158",
@@ -47,7 +50,7 @@ export default function App(props) {
         <View style={styles.container}>
           {Platform.OS === "ios" && <StatusBar barStyle="default" />}
           <IconRegistry icons={[EvaIconsPack, MaterialIconsPack]} />
-          <ApplicationProvider mapping={mapping} theme={light}>
+          <ApplicationProvider mapping={mapping} theme={theme}>
             <AppNavigator />
           </ApplicationProvider>
         </View>

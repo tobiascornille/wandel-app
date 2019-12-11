@@ -6,7 +6,7 @@ import RoutesSwiper from "../features/routes/RoutesSwiper";
 export default function RoutesScreen(props) {
   return (
     <View style={styles.container}>
-      {/* <Map {...props} /> */}
+      <Map {...props} />
       <View style={styles.swiper}>
         <RoutesSwiper {...props} />
       </View>

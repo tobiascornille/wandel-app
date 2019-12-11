@@ -15,7 +15,6 @@ const Map = ({ routes }) => {
 
   if (list.length > 0) {
     const { region, polylineCoords, spots } = list[currentIndex];
-    const inactiveRoutes = list.filter((_, index) => index !== currentIndex);
 
     return (
       <MapView
@@ -49,15 +48,6 @@ const Map = ({ routes }) => {
           strokeWidth={7}
           strokeColor={"#4cb1ff"}
         />
-        {inactiveRoutes.map(route => (
-          <Polyline
-            zIndex={0}
-            key={route.routeName}
-            coordinates={route.polylineCoords}
-            strokeWidth={7}
-            strokeColor={"grey"}
-          />
-        ))}
       </MapView>
     );
   } else {

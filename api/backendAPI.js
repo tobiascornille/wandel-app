@@ -11,7 +11,7 @@ export async function getRoutesInfo(location, destination, interests) {
   //         lat: latitude,
   //         lng: longitude
   //       },
-  //       destination,
+  //       destination: encodeURI(destination),
   //       preferences: interests
   //     }
   //   );

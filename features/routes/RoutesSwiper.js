@@ -22,7 +22,8 @@ const RoutesSwiper = ({ routes, setCurrentIndex, navigation }) => {
         <RouteCard index={index} data={item} navigation={navigation} />
       )}
       sliderWidth={sliderWidth}
-      itemWidth={slideWidth}
+      itemWidth={slideWidth + 20}
+      inactiveSlideOpacity={1}
       onBeforeSnapToItem={slideIndex => setCurrentIndex(slideIndex)}
     />
   ) : null;
