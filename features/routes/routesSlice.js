@@ -2,12 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getRoutesInfo } from "../../api/backendAPI";
 import { getDirections } from "../../api/directionsAPI";
 
+const initialState = {
+  list: [],
+  currentIndex: -1
+};
+
 const routesSlice = createSlice({
   name: "routes",
-  initialState: {
-    list: [],
-    currentIndex: -1
-  },
+  initialState,
   reducers: {
     setRoutes: (state, { payload }) => {
       state.list = payload;
@@ -15,11 +17,12 @@ const routesSlice = createSlice({
     },
     setCurrentIndex: (state, { payload }) => {
       state.currentIndex = payload;
-    }
+    },
+    clearRoutes: () => initialState
   }
 });
 
-export const { setRoutes, setCurrentIndex } = routesSlice.actions;
+export const { setRoutes, setCurrentIndex, clearRoutes } = routesSlice.actions;
 export default routesSlice.reducer;
 
 export const fetchRoutes = () => async (dispatch, getState) => {
@@ -27,8 +30,8 @@ export const fetchRoutes = () => async (dispatch, getState) => {
   try {
     const routesInfo = await getRoutesInfo(location, destination, interests);
     const routes = await Promise.all(
-      routesInfo.map(async ({ routeName, url, spots }) => {
-        const directions = await getDirections(url);
+      routesInfo.map(async ({ routeName, route, spots }) => {
+        const directions = await getDirections(route);
         return {
           routeName,
           spots,

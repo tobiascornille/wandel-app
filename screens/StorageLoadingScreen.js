@@ -16,7 +16,7 @@ export default function StorageLoadingScreen({ navigation }) {
 }
 
 const isFirstOpen = async navigation => {
-  const userToken = await AsyncStorage.getItem("openedBefore");
+  const openedBefore = await AsyncStorage.getItem("openedBefore");
   const interestsString = await AsyncStorage.getItem("interests");
   if (interestsString) {
     const interests = JSON.parse(interestsString);
@@ -24,5 +24,5 @@ const isFirstOpen = async navigation => {
   }
   await AsyncStorage.setItem("openedBefore", "true");
 
-  navigation.navigate("Tutorial");
+  navigation.navigate(openedBefore ? "App" : "Tutorial");
 };

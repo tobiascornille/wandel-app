@@ -1,14 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchRoutes } from "./routesSlice";
+import { fetchRoutes, clearRoutes } from "./routesSlice";
 import { Button } from "@ui-kitten/components";
 
-const mapDispatchToProps = { fetchRoutes };
+const mapDispatchToProps = { clearRoutes, fetchRoutes };
 
 const RouteButton = ({ navigation, fetchRoutes }) => {
   const { navigate } = navigation;
 
   handleFindRoute = () => {
+    clearRoutes();
     fetchRoutes();
     navigate("Routes");
   };

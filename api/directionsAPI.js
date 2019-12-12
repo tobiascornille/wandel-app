@@ -10,12 +10,16 @@ export async function getDirections(url) {
     const { bounds, legs, overview_polyline, waypoint_order } = routes[0];
     const region = createRegion(bounds);
     const polylineCoords = createPolylineCoords(overview_polyline);
+    const distance = getTotalDistance(legs);
+    const duration = getTotalDuration(legs);
 
     return {
       waypoint_order,
       region,
       legs,
-      polylineCoords
+      polylineCoords,
+      distance,
+      duration
     };
   } else {
     throw `Status code: ${status}`;
@@ -37,8 +41,8 @@ const createRegion = ({ northeast, southwest }) => {
   return {
     latitude: midX,
     longitude: midY,
-    latitudeDelta: deltaX + 0.1 * deltaX,
-    longitudeDelta: deltaY + 0.1 * deltaY
+    latitudeDelta: deltaX + 0.2 * deltaX,
+    longitudeDelta: deltaY + 0.2 * deltaY
   };
 };
 
@@ -49,4 +53,16 @@ const createPolylineCoords = ({ points }) => {
     longitude: p[1]
   }));
   return coords;
+};
+
+const getTotalDistance = legs => {
+  const meters = legs.reduce((acc, { distance }) => acc + distance.value, 0);
+  const kilometers = Math.round(meters / 100) / 10; // round to 1 number after comma
+  return `${kilometers} km`;
+};
+
+const getTotalDuration = legs => {
+  const seconds = legs.reduce((acc, { duration }) => acc + duration.value, 0);
+  const minutes = Math.round(seconds / 60);
+  return `${minutes} mins`;
 };

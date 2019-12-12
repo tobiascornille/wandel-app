@@ -5,14 +5,13 @@ import { slideWidth, slideHeight } from "../../constants/Layout";
 
 const RouteCard = ({ data, navigation }) => {
   const { navigate } = navigation;
-  const { routeName, legs } = data;
-  const { distance, duration } = legs[0];
+  const { routeName, distance, duration } = data;
   return (
     <View style={styles.slide}>
       <View style={styles.textContainer}>
         <Text category="h4">{routeName}</Text>
         <Text category="h6">
-          {duration.text} - {distance.text}
+          {duration} - {distance}
         </Text>
         <Layout style={styles.footer}>
           <Button style={styles.button} onPress={() => navigate("SpotList")}>
