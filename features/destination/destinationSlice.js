@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const destinationSlice = createSlice({
   name: "destination",
-  initialState: "",
+  initialState: "Marquês de Pombal",
   reducers: {
     setDestination: (_state, { payload }) => payload
   }

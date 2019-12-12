@@ -13,7 +13,7 @@ const Destination = ({ destination, setDestination }) => {
     <Input
       onChangeText={text => setDestination(text)}
       value={destination}
-      placeholder={"Baixa-Chiado"}
+      placeholder={"Alameda"}
     />
   );
 };

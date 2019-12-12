@@ -10,27 +10,27 @@ const slides = [
     key: "tutorial1",
     title: "Welcome to Wandel",
     text: "Wandel makes exploring cities easier than ever.",
-    image: require("../assets/images/robot-dev.png")
+    image: require("../assets/images/robot-prod.png")
   },
   {
     key: "tutorial2",
     title: "Walk to your destination",
     text:
       "Wandel creates interesting walking routes to wherever you want to go.",
-    image: require("../assets/images/robot-dev.png")
+    image: require("../assets/images/walk.png")
   },
   {
     key: "tutorial3",
     title: "Discover new spots",
     text:
       "The route will take you along some amazing spots, without taking you too far off the shortest route.",
-    image: require("../assets/images/robot-dev.png")
+    image: require("../assets/images/love.png")
   },
   {
     key: "tutorial4",
     title: "Explore the city your way",
     text: "Wandel generates walking routes based on your unique preferences.",
-    image: require("../assets/images/robot-dev.png")
+    image: require("../assets/images/select.png")
   },
   {
     key: "tutorial5",
@@ -102,10 +102,9 @@ const styles = StyleSheet.create({
     width: "100%"
   },
   image: {
-    width: 150,
-    height: 120,
-    resizeMode: "contain",
-    marginBottom: 32
+    width: 0,
+    height: 250,
+    resizeMode: "contain"
   },
   title: {
     marginVertical: 16
