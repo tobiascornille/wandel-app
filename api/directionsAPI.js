@@ -22,7 +22,7 @@ export async function getDirections(url) {
       duration
     };
   } else {
-    throw `Status code: ${status}`;
+    console.error(`Status code: ${status}`);
   }
 }
 

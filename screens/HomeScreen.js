@@ -9,14 +9,10 @@ export default function HomeScreen(props) {
 
   return (
     <Layout style={styles.container}>
-      <Layout style={styles.welcomeContainer}>
+      <Layout style={styles.logoContainer}>
         <Image
-          source={
-            __DEV__
-              ? require("../assets/images/robot-dev.png")
-              : require("../assets/images/robot-prod.png")
-          }
-          style={styles.welcomeImage}
+          source={require("../assets/images/logo.png")}
+          style={styles.logo}
         />
       </Layout>
 
@@ -57,15 +53,14 @@ const styles = StyleSheet.create({
   sectionContainer: {
     paddingVertical: 8
   },
-  welcomeContainer: {
+  logoContainer: {
     alignItems: "center",
-    marginTop: 10,
-    marginBottom: 20
+    marginTop: 80,
+    marginBottom: 60
   },
-  welcomeImage: {
-    width: 150,
-    height: 120,
-    resizeMode: "contain",
-    marginVertical: 30
+  logo: {
+    width: 170,
+    height: 170,
+    resizeMode: "contain"
   }
 });

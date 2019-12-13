@@ -64,8 +64,7 @@ AppRegistry.registerComponent("main", () => App);
 async function loadResourcesAsync() {
   await Promise.all([
     Asset.loadAsync([
-      require("./assets/images/robot-dev.png"),
-      require("./assets/images/robot-prod.png"),
+      require("./assets/images/logo.png"),
       require("./assets/images/current-location.png"),
       require("./assets/images/church-pin.png"),
       require("./assets/images/landmark-pin.png"),

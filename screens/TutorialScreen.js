@@ -10,7 +10,7 @@ const slides = [
     key: "tutorial1",
     title: "Welcome to Wandel",
     text: "Wandel makes exploring cities easier than ever.",
-    image: require("../assets/images/robot-prod.png")
+    image: require("../assets/images/logo.png")
   },
   {
     key: "tutorial2",
@@ -22,8 +22,7 @@ const slides = [
   {
     key: "tutorial3",
     title: "Discover new spots",
-    text:
-      "The route will take you along some amazing spots, without taking you too far off the shortest route.",
+    text: "The routes will take you along some of the best places in town.",
     image: require("../assets/images/love.png")
   },
   {
@@ -72,7 +71,10 @@ const renderItem = ({ item }) => {
     </Layout>
   ) : (
     <Layout style={styles.card}>
-      <Image source={item.image} style={styles.image} />
+      <Image
+        source={item.image}
+        style={item.title === "Welcome to Wandel" ? styles.logo : styles.image}
+      />
       <Text category="h2" style={styles.title}>
         {item.title}
       </Text>
@@ -101,8 +103,12 @@ const styles = StyleSheet.create({
   listContainer: {
     width: "100%"
   },
+  logo: {
+    height: 170,
+    resizeMode: "contain",
+    marginBottom: 40
+  },
   image: {
-    width: 0,
     height: 250,
     resizeMode: "contain"
   },

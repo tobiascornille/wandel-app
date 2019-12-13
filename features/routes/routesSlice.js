@@ -35,6 +35,7 @@ export const {
 export default routesSlice.reducer;
 
 export const fetchRoutes = () => async (dispatch, getState) => {
+  dispatch(clearRoutes());
   const { location, destination, interests } = getState();
   try {
     dispatch(toggleWaiting());

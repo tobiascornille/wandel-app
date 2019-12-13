@@ -18,7 +18,7 @@ export async function getRoutesInfo(location, destination, interests) {
 
     return routesResponse.data;
   } catch (err) {
-    throw err;
+    console.error(err.toString());
   }
 
   // const mockupUrl =
